@@ -1,22 +1,54 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import "./shims";
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ *
+ * @format
+ * @flow
+ */
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+import React, { Component } from "react";
+import { Platform, StyleSheet, Text, View } from "react-native";
+
+type Props = {};
+export default class App extends Component<Props> {
+  state = { loading: true, drizzleState: null };
+
+  componentDidMount() {
+    const { drizzle } = this.props;
+
+    this.unsubscribe = drizzle.store.subscribe(() => {
+      const drizzleState = drizzle.store.getState();
+
+      if (drizzleState.drizzleStatus.initialized) {
+        this.setState({ loading: false, drizzleState });
+      }
+    });
+  }
+
+  componentWillUnmount() {
+    this.unsubscribe();
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        {this.state.loading ? (
+          <Text>Loading Drizzle...</Text>
+        ) : (
+          <View>
+            <Text>Drizzle is ready</Text>
+          </View>
+        )}
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#F5FCFF"
+  }
 });
