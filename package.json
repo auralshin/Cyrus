@@ -6,6 +6,7 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@drizzle/store": "^1.5.1",
     "Base64": "^1.1.0",
     "expo": "~38.0.8",
     "expo-splash-screen": "~0.3.1",
