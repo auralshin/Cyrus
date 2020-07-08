@@ -8,6 +8,8 @@
 
 import React, { Component } from "react";
 import { Platform, StyleSheet, Text, View } from "react-native";
+import ReadString from "./components/ReadString";
+import SetString from "./components/SetString";
 
 type Props = {};
 export default class App extends Component<Props> {
@@ -33,16 +35,22 @@ export default class App extends Component<Props> {
     return (
       <View style={styles.container}>
         {this.state.loading ? (
-          <Text>Loading Drizzle...</Text>
+          <Text>Loading...</Text>
         ) : (
           <View>
-            <Text>Drizzle is ready</Text>
+            <ReadString
+              drizzle={this.props.drizzle}
+              drizzleState={this.state.drizzleState}
+            />
+           <SetString
+              drizzle={this.props.drizzle}
+              drizzleState={this.state.drizzleState}
+            />
           </View>
         )}
       </View>
     );
   }
-}
 
 const styles = StyleSheet.create({
   container: {
