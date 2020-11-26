@@ -7,8 +7,10 @@ import {
   ThreeIdConnect,
   EthereumAuthProvider,
 } from "../../node_modules/3id-connect/src/index";
-
+import web3Modal from "../utils/provider.js";
 import { Button } from 'antd';
+import LinkedStateMixin from 'react-addons-linked-state-mixin';
+
 
 var idx =  {}
 var ceramicb= {}
@@ -18,19 +20,40 @@ var id =  ""
 var ethaddress = ""
 var auth=  false
 
-async function saveProfile() {
-  const profileData = profiles.map(profile => ({
-    y: table.y,
-    profile:profile.profile,
-    did:profile.id,
-    ethadress:profile.ethaddress,
-    method:profile.update,
-  }),
+// async function saveProfile() {
+//   const profileData = profiles.map(profile => ({
+//     y: table.y,
+//     profile:profile.profile,
+//     did:profile.id,
+//     ethadress:profile.ethaddress,
+//     method:profile.update,
+//   }),
 
-  dispatch(Actions.save(profiles.channel, profileData)),
+//   dispatch(Actions.save(profiles.channel, profileData)),
+// }
+const saveProfile = () => {
+  const [idx, setIdx] = useState("") //update idx to id
+  const [ceramic, setCeramic] = useState("")
+  const [did, setDid] = useState("")
+  const [profile, setProfile] = useState("")
+  const [ethaddress, setEthaddress] = useState("")
+  const [auth, setAuth] = useState(false)
+  const OnChange = (e) => setIdx(e.target.id, e.target.profile, e.target.ethaddress, e.target.Update())
 }
+  const Card = (props) => {
+    const nameProps = useDataBind()
+    return(
+      <>
+      <Button {...nameProps} onClick>
 
-async function Authenticate () {
+      </Button>
+      </>
+    )
+  }
+
+
+
+const Authenticate = async () => {
   const THREEID_CONNECT_URL = "https://3idconnect.org/index.html";
   const DEFAULT_API_URL = "https://ceramic.3boxlabs.com";
   const API_URL = "http://localhost:7007";
@@ -86,12 +109,12 @@ async function Authenticate () {
     this.component = "card3";
   }
 }
-async function Edit() {
+const Edit = async () => {
   if (this.auth) {
     this.component = "card4";
   }
 }
-async function Update (profile2) {
+const Update = async (profile2) => {
   if (this.idx.authenticated) {
     console.log("update");
     const doc = await this.idx.set("profile", profile2);
