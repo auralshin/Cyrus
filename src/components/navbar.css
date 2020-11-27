@@ -6,7 +6,7 @@
 .navbar-brand {
   width: 60px !important;
   height: 60px !important;
-  background-image: url("./assets/coin.svg");
+  background-image: url("../assets/coin.svg");
   background-repeat: no-repeat;
   /* color: rgb(0, 0, 0) !important;
   font-family: "Montserrat", sans-serif;
@@ -14,7 +14,7 @@
 }
 
 .navbar-dark .navbar-toggler-icon {
-  background-image: url("./assets/hamburger.png");
+  background-image: url("../assets/hamburger.png");
 }
 .nav-item {
   font-size: 20px;
