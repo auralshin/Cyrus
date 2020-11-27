@@ -14,10 +14,6 @@ import {
   UncontrolledTooltip,
 } from "reactstrap";
 
-// core components
-import ExamplesNavbar from "components/Navbars/ExamplesNavbar.js";
-import ProfilePageHeader from "components/Headers/ProfilePageHeader.js";
-import DefaultFooter from "components/Footers/DefaultFooter.js";
 
 function ProfilePage() {
   const [pills, setPills] = React.useState("2");
@@ -34,9 +30,7 @@ function ProfilePage() {
   }, []);
   return (
     <>
-      <ExamplesNavbar />
       <div className="wrapper">
-        <ProfilePageHeader />
         <div className="section">
           <Container>
             <div className="button-container">
@@ -129,24 +123,24 @@ function ProfilePage() {
                         <img
                           alt="..."
                           className="img-raised"
-                          src={require("assets/img/bg1.jpg")}
+                          src={require("../../assets/img/bg1.jpg")}
                         ></img>
                         <img
                           alt="..."
                           className="img-raised"
-                          src={require("assets/img/bg3.jpg")}
+                          src={require("../../assets/img/bg3.jpg")}
                         ></img>
                       </Col>
                       <Col md="6">
                         <img
                           alt="..."
                           className="img-raised"
-                          src={require("assets/img/bg8.jpg")}
+                          src={require("../../assets/img/bg8.jpg")}
                         ></img>
                         <img
                           alt="..."
                           className="img-raised"
-                          src={require("assets/img/bg7.jpg")}
+                          src={require("../../assets/img/bg7.jpg")}
                         ></img>
                       </Col>
                     </Row>
@@ -159,24 +153,24 @@ function ProfilePage() {
                         <img
                           alt="..."
                           className="img-raised"
-                          src={require("assets/img/bg6.jpg")}
+                          src={require("../../assets/img/bg6.jpg")}
                         ></img>
                         <img
                           alt="..."
                           className="img-raised"
-                          src={require("assets/img/bg11.jpg")}
+                          src={require("../../assets/img/bg11.jpg")}
                         ></img>
                       </Col>
                       <Col md="6">
                         <img
                           alt="..."
                           className="img-raised"
-                          src={require("assets/img/bg7.jpg")}
+                          src={require("../../assets/img/bg7.jpg")}
                         ></img>
                         <img
                           alt="..."
                           className="img-raised"
-                          src={require("assets/img/bg8.jpg")}
+                          src={require("../../assets/img/bg8.jpg")}
                         ></img>
                       </Col>
                     </Row>
@@ -189,24 +183,24 @@ function ProfilePage() {
                         <img
                           alt="..."
                           className="img-raised"
-                          src={require("assets/img/bg3.jpg")}
+                          src={require("../../assets/img/bg3.jpg")}
                         ></img>
                         <img
                           alt="..."
                           className="img-raised"
-                          src={require("assets/img/bg8.jpg")}
+                          src={require("../../assets/img/bg8.jpg")}
                         ></img>
                       </Col>
                       <Col md="6">
                         <img
                           alt="..."
                           className="img-raised"
-                          src={require("assets/img/bg7.jpg")}
+                          src={require("../../assets/img/bg7.jpg")}
                         ></img>
                         <img
                           alt="..."
                           className="img-raised"
-                          src={require("assets/img/bg6.jpg")}
+                          src={require("../../assets/img/bg6.jpg")}
                         ></img>
                       </Col>
                     </Row>
@@ -216,7 +210,6 @@ function ProfilePage() {
             </Row>
           </Container>
         </div>
-        <DefaultFooter />
       </div>
     </>
   );
